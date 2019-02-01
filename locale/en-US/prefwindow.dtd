@@ -1,0 +1,17 @@
+<!ENTITY prefwindow.title "FIDOquoter preferences">
+<!ENTITY pane1.title "FIDOquoter preferences">
+<!ENTITY stringGroups.label "Use FTN quoting for these groups (regexp):">
+<!ENTITY checkboolChSubjOnFwd.label "Remove [ and ] in subject when forwarding messages">
+<!ENTITY checkboolFTNQ.label "Use FTN quoting when replying">
+<!ENTITY checkboolQEmpty.label "Quote empty strings">
+<!ENTITY checkboolQSign.label "Quote signature">
+<!ENTITY checkboolFlowedFmtOn.label "Use flowed format (NOT recommended to turn on)">
+<!ENTITY checkboolUseColors.label "Use color markup">
+<!ENTITY stringColor1.label "Color 1:">
+<!ENTITY stringColor2.label "Color 2:">
+<!ENTITY checkboolXCT.label "Add X-Comment-To header (needed for FTN message to have To: field)">
+<!ENTITY checkboolCheckTB3FTN.label "(Thunderbird 3+ only) Check for KOI8-R compatibility and correct threading support">
+<!ENTITY checkboolFTNAddrAsLink.label "Show 3/4D FTN addresses as links">
+<!ENTITY stringFTNURL.label "URL for FTN address information: ">
+<!ENTITY stringFTNDomain.label "FTN domain:">
+

@@ -1,0 +1,9 @@
+
+content	fidoquoter	content/
+locale	fidoquoter	en-US	locale/en-US/
+locale	fidoquoter	ru	locale/ru/
+skin	fidoquoter	classic/1.0	skin/
+
+overlay	chrome://messenger/content/messengercompose/messengercompose.xul	chrome://fidoquoter/content/thunderbirdOverlay.xul
+overlay	chrome://messenger/content/messageWindow.xul	chrome://fidoquoter/content/fqmessageWindow.xul
+overlay	chrome://messenger/content/messenger.xul	chrome://fidoquoter/content/fqmessenger.xul

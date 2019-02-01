@@ -1,0 +1,17 @@
+<!ENTITY prefwindow.title "Настройки FIDOquoter">
+<!ENTITY pane1.title "Настройки FIDOquoter">
+<!ENTITY stringGroups.label "Группы и/или кореспонденты ФИДО (regexp):">
+<!ENTITY checkboolChSubjOnFwd.label "Удалять [ и ] из темы при пересылке">
+<!ENTITY checkboolFTNQ.label "Использовать ФИДО цитирование при ответе">
+<!ENTITY checkboolQEmpty.label "Цитировать пустые строки">
+<!ENTITY checkboolQSign.label "Цитировать подпись">
+<!ENTITY checkboolFlowedFmtOn.label "Переформатировать (не рекомендуется)">
+<!ENTITY checkboolUseColors.label "Расрашивать цитаты">
+<!ENTITY stringColor1.label "Цвет 1:">
+<!ENTITY stringColor2.label "Цвет 2:">
+<!ENTITY checkboolXCT.label "Добавлять заголовок X-Comment-To (полезно для ФИДО)">
+<!ENTITY checkboolCheckTB3FTN.label "Проверка и корректировка настроек KOI8-R и обсуждений">
+<!ENTITY checkboolFTNAddrAsLink.label "Показывать 3/4D адреса ФИДО как ссылки">
+<!ENTITY stringFTNURL.label "URL информации по ФИДО адресам: ">
+<!ENTITY stringFTNDomain.label "Домен ФИДО:">
+

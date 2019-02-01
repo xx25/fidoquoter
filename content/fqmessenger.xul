@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://fidoquoter/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://fidoquoter/locale/fidoquoter.dtd">
+<overlay id="fidoquoter-messenger"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="fq_colorize.js"/>
+  <script src="fq_messenger.js"/>
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="fidoquoter-strings" 
+    		src="chrome://fidoquoter/locale/fidoquoter.properties"/>
+  </stringbundleset>
+
+</overlay>

@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vim:set sw=2 ts=8 fileencoding=utf8::Кодировка:UTF-8[АБЁЪЯабёъя] -->
+
+<!-- BSD License, see file LICENSE -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://fidoquoter/locale/prefwindow.dtd">
+
+<prefwindow id="fidoquoterPreferences" 
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+    title="&prefwindow.title;"
+    minheight="400"
+    >
+
+  <script type="application/x-javascript"
+      src="chrome://fidoquoter/content/fq_options.js"/>
+
+  <prefpane id="FIDO" label="Настройки"
+	    image="2867-3-32.png"
+	    >
+    <preferences>
+      <preference id="boolKeywords"
+	  name="extensions.fidoquoter.boolKeywords" 
+	  type="bool"/>
+      <preference id="stringKeywords"
+	  name="extensions.fidoquoter.stringKeywords" 
+	  type="string"/>
+
+      <preference id="boolGroups"
+	  name="extensions.fidoquoter.boolGroups" 
+	  type="bool"/>
+      <preference id="stringGroups"
+	  name="extensions.fidoquoter.stringGroups" 
+	  type="string"/>
+
+      <preference id="boolMail"
+	  name="extensions.fidoquoter.boolMail" 
+	  type="bool"/>
+      <preference id="stringMail"
+	  name="extensions.fidoquoter.stringMail" 
+	  type="string"/>
+
+      <preference id="stringFTNURL"
+	  name="extensions.fidoquoter.stringFTNURL" 
+	  type="string"/>
+      <preference id="stringFTNDomain"
+	  name="extensions.fidoquoter.stringFTNDomain" 
+	  type="string"/>
+    </preferences>
+
+    <groupbox><vbox flex="1" style="overflow: auto; width: 100%; height: 100%;">
+
+      <hbox align="center">
+	<checkbox id="boolKeywords" preference="boolKeywords"
+	    label="Вставлять код подключения 2:5020/400"
+	    onclick="
+	      document.getElementById('stringKeywords').disabled = this.checked;
+	      document.getElementById('stringForKeywords').disabled = this.checked;
+	    "/>
+	<label id="help" class="text-link"
+	    onclick="openURL('http://ddt.demos.su');"
+	    style="margin-left:25px;"
+	    value="(ddt.demos.su)"
+	  />	  
+      </hbox>
+      <hbox align="center">
+	<label value="Keywords:" control="stringKeywords"/>
+	<textbox id="stringKeywords" preference="stringKeywords"
+	    disabled="true"/>
+	<label value="Для:" control="stringForKeywords"/>
+	<textbox id="stringForKeywords" preference="stringForKeywords"
+	    disabled="true"/>
+      </hbox>
+
+      <checkbox id="boolNews" preference="boolNews"
+	  label="ФИДО цитирование в группах новостей"
+	  onclick="
+	    document.getElementById('stringGroups').disabled = this.checked;
+	  "/>
+      <hbox align="center">
+	<label value="Группы:" control="stringGroups"/>
+	<textbox id="stringGroups" preference="stringGroups"
+	    disabled="true"/>
+      </hbox>
+
+      <checkbox id="boolMail" preference="boolMail"
+	  label="ФИДО цитирование писем"
+	  onclick="
+	    document.getElementById('stringSenders').disabled = this.checked;
+	  "/>
+      <hbox align="center">
+	<label value="Отправители:" control="stringSenders"/>
+	<textbox id="stringSenders" preference="stringSenders"
+	    disabled="true"/>
+      </hbox>
+
+      <label control="stringFTNURL">&stringFTNURL.label;</label>
+      <textbox id="stringFTNURL" preference="stringFTNURL" />
+
+      <label control="stringFTNDomain">&stringFTNDomain.label;</label>
+      <textbox id="stringFTNDomain" preference="stringFTNDomain" />
+      
+      <hbox>
+        <spacer flex="1"/>
+	<label id="help" class="text-link"
+	    onclick="openURL(
+		'http://lnfm1.sai.msu.ru/~leo/FIDOquoter/FIDOquoter/Nastrojka.html'
+	      );"
+	    style="margin-left:25px;"
+	    value="(?)"
+	  />	  
+      </hbox>
+    </vbox></groupbox>
+  </prefpane>
+
+  <prefpane id="fq_opt_recv" label="Просмотр" 
+	    image="mz-read-32.png">
+    <preferences>
+      <preference id="boolFTNAddrAsLink"
+	  name="extensions.fidoquoter.boolFTNAddrAsLink" 
+	  type="bool"/>
+      <preference id="stringInCharRestore"
+	  name="extensions.fidoquoter.stringInCharRestore" 
+	  type="string"/>
+      <preference id="boolMithcodeIn"
+	  name="extensions.fidoquoter.boolMithcodeIn" 
+	  type="bool"/>
+      <preference id="boolUseColors"
+	  name="extensions.fidoquoter.boolUseColors" 
+	  type="bool"/>
+      <preference id="stringColor1"
+	  name="extensions.fidoquoter.stringColor1" 
+	  type="string"/>
+      <preference id="stringColor2"
+	  name="extensions.fidoquoter.stringColor2" 
+	  type="string"/>
+    </preferences>
+
+    <groupbox><vbox flex="1" style="overflow: auto; width: 100%; height: 100%;">
+      <checkbox id="checkboolFTNAddrAsLink" preference="boolFTNAddrAsLink" 
+	  label="&checkboolFTNAddrAsLink.label;"/>
+
+      <checkbox id="boolMithcodeIn" preference="boolMithcodeIn"
+	  label="Декодировать Mithcode" disabled="true" checked="true"/>
+
+      <hbox align="center">
+	<label value="Нормализация Unicode:" control="stringInNormalization"/>
+	<menulist id="stringInNormalization"
+		  preference="stringInNormalization">
+	  <menupopup>
+	    <menuitem value="NONE" label="Нет"/>
+	    <menuitem value="NFC"  label="NFC"/>
+	    <menuitem value="NFD"  label="NFD"/>
+	    <menuitem value="NFKD" label="NFKD"/>
+	    <menuitem value="NFKC" label="NFKC"/>
+	  </menupopup>
+	</menulist>
+      </hbox>
+
+<!--
+leom:unix leo$ pwd
+/opt/local/var/spool/news/fido7/ru/unix
+$ for c in A B E K M H O P C T X a e o p c y x ; do printf "%s: " "$c" ;
+grep -r "[ а-яА-Я]$c[а-яА-Я]" . | wc ; done
+A:       66     537    3842
+B:       21     141    1185
+E:       17     183    1375
+K:       27     271    2092
+M:       76     770    5585
+H:    99649 1050586 7755366
+O:       45     348    3040
+P:       58     625    4474
+C:      390    4059   34633
+T:       68     731    4961
+X:       81     889    5892
+a:      488    3976   35945
+e:     1080    5954   66791
+o:     1614    8346  101043
+p:   132878 1224314 10176693
+c:     2495   21492  191467
+y:     8248   82965  657872
+x:        7      37     457
+leom:unix leo$ grep -r '^Date' . | awk '{ cnt[$5]++; } END { for(i in
+cnt) { print i, cnt[i]; } }' | sort
+2003 22278
+2004 38755
+2005 31329
+2006 22789
+2007 18821
+2008 9761
+2009 5325
+2010 1802
+2011 203
+2012 215
+2013 289
+2014 770
+2015 1657
+
+leom:today leo$ pwd
+/opt/local/var/spool/news/fido7/ru/fidonet/today
+$ for c in A B E K M H O P C T X a e o p c y x ; do printf "%s: " "$c" ;
+grep -r "[ а-яА-Я]$c[а-яА-Я]" . | wc ; done
+A:       18     164    1188
+B:       16     120     817
+E:        4      36     288
+K:       10      82     595
+M:        9      54     364
+H:    32531  354804 2518153
+O:       50     522    3901
+P:       13     141     898
+C:      103    1032    7216
+T:        6      54     322
+X:        7      45     251
+a:      388    3227   26518
+e:      393    3797   30416
+o:      350    3103   26512
+p:    65128  671169 5686381
+c:      713    6700   51969
+y:    14049  145926 1149244
+x:       11     111     832
+leom:today leo$ grep -r '^Date' . | awk '{ cnt[$5]++; } END { for(i in
+cnt) { print i, cnt[i]; } }' | sort
+1996 2
+2003 64
+2004 479
+2005 2811
+2006 1863
+2007 2904
+2008 2898
+2009 4113
+2010 7449
+2011 3208
+2012 3169
+2013 2049
+2014 836
+2015 862
+
+leom:c-cpp leo$ pwd
+/opt/local/var/spool/news/fido7/su/c-cpp
+$ for c in A B E K M H O P C T X a e o p c y x ; do printf "%s: " "$c" ;
+grep -r "[ а-яА-Я]$c[а-яА-Я]" . | wc ; done
+A:        0       0       0
+B:        0       0       0
+E:        0       0       0
+K:        0       0       0
+M:        0       0       0
+H:     3256   31380  221185
+O:        0       0       0
+P:        0       0       0
+C:       42     426    3276
+T:        0       0       0
+X:        0       0       0
+a:      380    4185   26920
+e:       56     672    4002
+o:       98    1050    6409
+p:    14768  138196 1059200
+c:       30     358    2129
+y:     7536   78723  615925
+x:        0       0       0
+leom:c-cpp leo$ grep '^Date' * | awk '{ cnt[$5]++; } END { for(i in cnt)
+{ print i, cnt[i]; } }' | sort
+2008 316
+2009 134
+2010 382
+2011 101
+2012 59
+2013 311
+2014 339
+2015 10
+
+leom:mac leo$ pwd
+/opt/local/var/spool/news/fido7/ru/mac
+$ for c in A B E K M H O P C T X a e o p c y x ; do printf "%s: " "$c" ;
+grep -r "[ а-яА-Я]$c[а-яА-Я]" . | wc ; done
+A:        1      10      79
+B:        0       0       0
+E:        0       0       0
+K:        0       0       0
+M:        2      20     147
+H:     1585   17150  113702
+O:        0       0       0
+P:        0       0       0
+C:        1      14      84
+T:        0       0       0
+X:        1       9      82
+a:        4      47     318
+e:        1      11      80
+o:        1      16      86
+p:      565    4924   36768
+c:        6      62     457
+y:      118    1104    7981
+x:        2      25     160
+leom:mac leo$ grep '^Date' * | awk '{ cnt[$5]++; } END { for(i in cnt) {
+print i, cnt[i]; } }' | sort
+2008 93
+2009 78
+2010 373
+2011 191
+2012 314
+2013 504
+2014 188
+2015 230
+-->
+      <hbox align="center">
+	<label value="Восстановление символов:" control="stringInCharRestore"/>
+	<menulist id="stringInCharRestore"
+		  preference="stringInCharRestore">
+	  <menupopup>
+	    <menuitem value="" label="Нет"/>
+	    <menuitem value="Hpy" label="'Hp'"/>
+	    <menuitem value="ABEKMHOPCTXaeopcyx" label="'ABEKMHOPCTXaeopcyx'"/>
+	  </menupopup>
+	</menulist>
+      </hbox>
+
+      <checkbox id="boolUseColors" preference="boolUseColors" 
+	  label="&checkboolUseColors.label;"
+	  onclick="
+	    document.getElementById('stringColor1').disabled = this.checked;
+	    document.getElementById('stringColor2').disabled = this.checked;
+	    document.getElementById('stringColor3').disabled = this.checked;
+	    "/>
+
+      <hbox align="top">
+	<hbox align="center">
+	  <label control="stringColor1">&stringColor1.label;</label>
+	  <colorpicker type="button" id="stringColor1" preference="stringColor1" />
+	</hbox>
+
+	<vbox>
+	  <hbox align="center">
+	    <label control="stringColor2">&stringColor2.label;</label>
+	    <colorpicker type="button" id="stringColor2" preference="stringColor2" />
+	  </hbox>
+	  <hbox align="center">
+	    <label control="stringColor3">Цвет 3:</label>
+	    <colorpicker type="button" id="stringColor3" preference="stringColor3" />
+	  </hbox>
+	</vbox>
+      </hbox>
+
+      <hbox>
+        <spacer flex="1"/>
+	<label id="help" class="text-link"
+	    onclick="openURL(
+		'http://lnfm1.sai.msu.ru/~leo/FIDOquoter/FIDOquoter/Nastrojka.html'
+	      );"
+	    style="margin-left:25px;"
+	    value="(?)"
+	  />	  
+      </hbox>
+    </vbox></groupbox>
+  </prefpane>
+
+  <prefpane id="fq_opt_quote" label="Цитирование" 
+	    image="quote-32.png">
+    <preferences>
+      <preference id="boolChSubjOnFwd" 
+      		name="extensions.fidoquoter.boolChSubjOnFwd" type="bool"/>
+      <preference id="boolFTNQ"
+	        name="extensions.fidoquoter.boolFTNQ" type="bool"/>
+      <preference id="stringQEmpty" 
+      		name="extensions.fidoquoter.boolQEmpty" type="bool"/>
+      <preference id="boolQSign" 
+      		name="extensions.fidoquoter.boolQSign" type="bool"/>
+    </preferences>
+
+    <groupbox><vbox flex="1" style="overflow: auto; width: 100%; height: 100%;">
+    <checkbox id="boolChSubjOnFwd" preference="boolChSubjOnFwd" 
+	label="&checkboolChSubjOnFwd.label;"/>
+
+    <checkbox id="boolFTNQ" preference="boolFTNQ" 
+	label="&checkboolFTNQ.label;"
+	onclick="
+	  document.getElementById('stringQEmpty').disabled = this.checked;
+	  document.getElementById('stringQReformat').disabled = this.checked;
+	  document.getElementById('stringQPriority').disabled = this.checked;
+	"/>
+
+    <hbox align="center">
+      <label value="Пустая строка при цитировании:" 
+	    control="stringQEmpty"/>
+      <menulist id="stringQEmpty" preference="stringQEmpty"
+	  oncommand="
+	    if(this.value == 'delete') {
+	      document.getElementById('stringQEmptyWarning').value = 
+		  	'удалять - не рекомендуется';
+	    } else {
+	      document.getElementById('stringQEmptyWarning').value = '';
+	    }
+	  "
+	  disabled="true">
+        <menupopup>
+          <menuitem value="quote"  label="Цитируется"/>
+          <menuitem value="leave"  label="Остаётся пустой" />
+          <menuitem value="delete" label="Удаляется"/>
+        </menupopup>
+      </menulist>
+      <label id="stringQEmptyWarning" value=""
+	  control="stringQEmpty"
+	  style="color:red;"/>
+    </hbox>
+
+    <hbox align="center">
+      <label value="Переформатирование цитат:" 
+	    control="stringQReformat"/>
+      <menulist id="stringQReformat" preference="stringQReformat"
+	  oncommand="
+	    if(this.value == 'ALWAYS') {
+	      document.getElementById('stringQReformatWarning').value = 
+		  	'всегда - не рекомендуется';
+	    } else {
+	      document.getElementById('stringQReformatWarning').value = '';
+	    }
+	  "
+	  disabled="true">
+        <menupopup>
+          <menuitem value="NONE"   label="Никогда"/>
+          <menuitem value="SOFTCR" label="Для мягких CRLF" />
+          <menuitem value="ALWAYS" label="Всегда"/>
+        </menupopup>
+      </menulist>
+      <label id="stringQReformatWarning" value=""
+	  control="stringQReformat"
+	  style="color:red;"/>
+    </hbox>
+
+    <!-- 
+    <checkbox id="boolQSign" preference="boolQSign" 
+	label="&checkboolQSign.label;"/>
+    -->
+
+    <hbox align="center">
+      <label value="Приоритет стиля цитирования:" 
+	  control="stringQPriority"/>
+      <menulist id="stringQPriority"
+	  preference="stringQPriority"
+	  disabled="true">
+        <menupopup>
+          <menuitem value="correspondent" label="Стиль корреспондента"/>
+          <menuitem value="fsc0032"       label="FSC-0032"/>
+          <menuitem value="rfc3676"       label="RFC 3676" />
+        </menupopup>
+      </menulist>
+    </hbox>
+
+      <hbox>
+        <spacer flex="1"/>
+	<label id="help" class="text-link"
+	    onclick="openURL(
+		'http://lnfm1.sai.msu.ru/~leo/FIDOquoter/FIDOquoter/Nastrojka.html'
+	      );"
+	    style="margin-left:25px;"
+	    value="(?)"
+	  />	  
+      </hbox>
+    </vbox></groupbox>
+  </prefpane>
+
+  <prefpane id="fq_opt_send" label="Отправка" 
+	    image="mz-comp-32.png">
+    <preferences>
+      <preference id="boolXCT" 
+	  name="extensions.fidoquoter.boolXCT"
+	  type="bool"/> 
+      <preference id="stringOutCommonReplace"
+	  name="extensions.fidoquoter.stringOutCommonReplace" 
+	  type="string"/>
+      <preference id="colorOutCommonReplace"
+	  name="extensions.fidoquoter.colorOutCommonReplace" 
+	  type="string"/>
+      <preference id="stringOutPunctReplace"
+	  name="extensions.fidoquoter.stringOutPunctReplace" 
+	  type="string"/>
+      <preference id="colorOutPunctReplace"
+	  name="extensions.fidoquoter.colorOutPunctReplace" 
+	  type="string"/>
+      <preference id="stringOutBelReplace"
+	  name="extensions.fidoquoter.stringOutBelReplace" 
+	  type="string"/>
+      <preference id="colorOutBelReplace"
+	  name="extensions.fidoquoter.colorOutBelReplace" 
+	  type="string"/>
+      <preference id="stringOutUkrReplace"
+	  name="extensions.fidoquoter.stringOutUkrReplace" 
+	  type="string"/>
+      <preference id="colorOutUkrReplace"
+	  name="extensions.fidoquoter.colorOutUkrReplace" 
+	  type="string"/>
+      <preference id="boolMithcodeOut"
+	  name="extensions.fidoquoter.boolMithcodeOut" 
+	  type="bool"/>
+      <preference id="colorOutKOI8"
+	  name="extensions.fidoquoter.colorOutKOI8" 
+	  type="string"/>
+    </preferences>
+      
+    <groupbox><vbox flex="1" style="overflow: auto; width: 100%; height: 100%;">
+    <checkbox id="checkboolXCT" preference="boolXCT" 
+	label="&checkboolXCT.label;"/>
+
+    <hbox align="center">
+      <label value="Замена «№→…±§»:" control="stringOutPunctReplace"/>
+      <menulist id="stringOutPunctReplace"
+		preference="stringOutPunctReplace"
+		onclick="
+		  document.getElementById('colorOutPunctReplace').disabled = 
+		  	(this.value == 'color');
+		  ">
+        <menupopup>
+          <menuitem value="ignore"  label="Не заменять"
+		selected="true"/>
+          <menuitem value="color"   label="Выделять цветом" 
+	  	disabled="true"/>
+          <menuitem value="replace" label='Заменять "#->..."'
+	  	disabled="true"/>
+        </menupopup>
+      </menulist>
+      <colorpicker type="button" id="colorOutPunctReplace"
+      		preference="colorOutPunctReplace"
+		color="yellow"/>
+    </hbox>
+
+    <hbox align="center">
+      <label value="Замена Ўў:" control="stringOutBelReplace"/>
+      <menulist id="stringOutBelReplace"
+		preference="stringOutBelReplace"
+		onclick="
+		  document.getElementById('colorOutBelReplace').disabled = 
+		  	(this.value == 'color');
+		  ">
+        <menupopup>
+          <menuitem value="ignore"  label="Не заменять"
+		selected="true"/>
+          <menuitem value="color"   label="Выделять цветом" 
+	  	disabled="true"/>
+          <menuitem value="replace" label="Заменять Ww" 
+	  	disabled="true"/>
+          <menuitem value="replace" label="KOI8-R как KOI8-RU"
+	  	disabled="true"/>
+        </menupopup>
+      </menulist>
+      <colorpicker type="button" id="colorOutBelReplace"
+      		preference="colorOutBelReplace"
+		color="yellow"/>
+    </hbox>
+
+    <hbox align="center">
+      <label value="Замена ЄєІіЇїҐґ:" control="stringOutUkrReplace"/>
+      <menulist id="stringOutUkrReplace"
+		preference="stringOutUkrReplace"
+		onclick="
+		  document.getElementById('colorOutUkrReplace').disabled = 
+		  	(this.value == 'color');
+		  ">
+        <menupopup>
+          <menuitem value="ignore"  label="Не заменять"
+		selected="true"/>
+          <menuitem value="color"   label="Выделять цветом" 
+	  	disabled="true"/>
+          <menuitem value="replace" label="Заменять ЕеIiЙIйiГг" 
+	  	disabled="true"/>
+          <menuitem value="replace" label="KOI8-R как KOI8-U"
+	  	disabled="true"/>
+        </menupopup>
+      </menulist>
+      <colorpicker type="button" id="colorOutUkrReplace"
+      		preference="colorOutUkrReplace"
+		color="yellow"/>
+    </hbox>
+
+    <hbox align="center">
+      <label value="Замена общих символов Unicode:" 
+	  control="stringOutCommonReplace"/>
+      <menulist id="stringOutCommonReplace"
+		preference="stringOutCommonReplace"
+		onclick="
+		  document.getElementById('colorOutCommonReplace').disabled = 
+		  	(this.value == 'color');
+		  ">
+        <menupopup>
+          <menuitem value="ignore" label="Не заменять"
+		selected="true"/>
+          <menuitem value="color"  label="Выделять цветом" 
+	  	disabled="true"/>
+          <menuitem value="space"  label="Заменять на -'&quot;"
+	  	disabled="true"/>
+        </menupopup>
+      </menulist>
+      <colorpicker type="button" id="colorOutCommonReplace"
+      		preference="colorOutCommonReplace"
+		color="yellow"/>
+    </hbox>
+
+    <checkbox id="checkboolMithcodeOut" preference="boolMithcodeOut"
+	label="Кодировать Mithcode" checked="true"
+	onclick="
+	  document.getElementById('colorOutKOI8').disabled = this.checked;
+	  "/>
+
+    <hbox align="center">
+      <label control="colorOutKOI8">
+	Выделять цветом неперекодируемое без замен
+      </label>
+      <colorpicker type="button" id="colorOutKOI8" preference="colorOutKOI8" />
+    </hbox>
+
+      <hbox>
+        <spacer flex="1"/>
+	<label id="help" class="text-link"
+	    onclick="openURL(
+		'http://lnfm1.sai.msu.ru/~leo/FIDOquoter/FIDOquoter/Nastrojka.html'
+	      );"
+	    style="margin-left:25px;"
+	    value="(?)"
+	  />	  
+      </hbox>
+    </vbox></groupbox>
+  </prefpane>
+
+  <prefpane id="fq_opt_settings" label="Настройки" 
+	    image="options-32.png">
+    <preferences>
+      <preference id="boolCheckTB3FTN"
+	  name="extensions.fidoquoter.boolCheckTB3FTN" 
+	  type="bool"/>
+      <preference id="boolFlowedFmtOn"
+	  name="extensions.fidoquoter.boolFlowedFmtOn" 
+	  type="bool"/>
+    </preferences>
+      
+    <groupbox><vbox flex="1" style="overflow: auto; width: 100%; height: 100%;">
+    <checkbox id="checkboolCheckTB3FTN" preference="boolCheckTB3FTN" 
+	label="&checkboolCheckTB3FTN.label;"/>
+
+    <checkbox id="checkboolFlowedFmtOn" preference="boolFlowedFmtOn" 
+	label="&checkboolFlowedFmtOn.label;"/>
+
+    <button label="Восстановить значения по умолчанию" disabled="true"/>
+      <hbox>
+        <spacer flex="1"/>
+	<label id="help" class="text-link"
+	    onclick="openURL(
+		'http://lnfm1.sai.msu.ru/~leo/FIDOquoter/FIDOquoter/Nastrojka.html'
+	      );"
+	    style="margin-left:25px;"
+	    value="(?)"
+	  />	  
+      </hbox>
+    </vbox></groupbox>
+  </prefpane>
+
+  <prefpane id="fq_opt_changelog" label="Версии" 
+	    image="log-32.png">
+      
+    <groupbox><vbox flex="1" style="overflow: auto; width: 100%; height: 100%;">
+	<label id="website" class="text-link"
+	    onclick="openURL(
+		'http://lnfm1.sai.msu.ru/~leo/FIDOquoter/FIDOquoter'
+	      );"
+	    style="margin-left:25px;" 
+	    value="ФИДО цитирование, домашняя страница"
+	  />
+
+      <separator class="thin"/>
+
+      <hbox>
+        <spacer flex="1"/>
+	<label id="help" class="text-link"
+	    onclick="openURL(
+		'http://lnfm1.sai.msu.ru/~leo/FIDOquoter/FIDOquoter/Nastrojka.html'
+	      );"
+	    value="(?)"
+	  />	  
+      </hbox>
+    </vbox></groupbox>
+  </prefpane>
+
+</prefwindow>
